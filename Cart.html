@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .cart-container {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .cart-item h4 {
+            margin: 0;
+        }
+
+        .cart-item span {
+            font-size: 18px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-controls button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin: 0 5px;
+            border-radius: 3px;
+        }
+
+        .quantity-controls button:hover {
+            background-color: #555;
+        }
+
+        .quantity {
+            font-size: 16px;
+        }
+
+        .total {
+            text-align: right;
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .buy-now {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #00ff00;
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .buy-now:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <header>Shopping Cart</header>
+    <div class="cart-container" id="cart-container">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+    <div class="total" id="total-price">
+        Total: ₹0.00
+    </div>
+    <a href="order.html" class="buy-now">Buy Now</a>
+    <script>
+        const cartContainer = document.getElementById("cart-container");
+        const totalPriceElement = document.getElementById("total-price");
+
+        // Retrieve cart from local storage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function updateCart() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function renderCart() {
+            cartContainer.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <div class="quantity-controls">
+                        <button onclick="decreaseQuantity(${index})">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button onclick="increaseQuantity(${index})">+</button>
+                    </div>
+                    <span>₹${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                cartContainer.appendChild(cartItem);
+                total += item.price * item.quantity;
+            });
+
+            totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+        }
+
+        function increaseQuantity(index) {
+            cart[index].quantity++;
+            updateCart();
+        }
+
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+            } else {
+                cart.splice(index, 1); // Remove item if quantity is 0
+            }
+            updateCart();
+        }
+
+        // Initialize cart with quantities if missing
+        cart.forEach(item => {
+            if (!item.quantity) item.quantity = 1;
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>

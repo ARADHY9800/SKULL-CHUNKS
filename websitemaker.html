@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - Skull Chunks</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-family: 'Arial', sans-serif;
+            background: #1e1e2f;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #262640;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff4500;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 10px;
+            background: linear-gradient(135deg, #262640, #3e3e5e);
+            border-bottom: 2px solid #ff4500;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta:hover {
+            transform: scale(1.1);
+            background-color: #e04300;
+        }
+
+        .note {
+            font-size: 1rem;
+            color: #ff4500;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            animation: fadeInOut 6s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .contact {
+            background-color: #262640;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff4500;
+        }
+
+        .contact p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #262640;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Skull Chunks</div>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="note">These services are paid</div>
+        <h1>Getting Started with Skull Chunks</h1>
+        <p>Begin your journey with our top-notch web services. Click below to get started!</p>
+        <a href="getstarted.html" class="cta">Get Started</a>
+        <a href="webplan.html" class="cta" style="margin-top: 10px;">View Service Plan</a>
+    </div>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have any questions or need assistance? Get in touch with us via email:</p>
+        <a href="mailto:skullchunksofficial@gmail.com" class="cta">Email Us</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skull Chunks. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

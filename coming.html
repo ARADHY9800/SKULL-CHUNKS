@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .welcome-note {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem; /* Increased size */
+            color: #ff4500;
+            opacity: 1;
+            transition: opacity 2s ease-out;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-note" id="welcome-note">
+        Services Available Soon
+    </div>
+    <script>
+        // Load Google Fonts
+        const link = document.createElement('link');
+        link.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+
+        // Dissolve effect
+        window.onload = function() {
+            const welcomeNote = document.getElementById('welcome-note');
+            welcomeNote.style.animation = 'fadeInOut 6s infinite';
+        };
+    </script>
+</body>
+</html>

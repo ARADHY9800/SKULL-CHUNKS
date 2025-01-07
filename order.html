@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .order-container {
+            padding: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .order-item h4 {
+            margin: 0;
+        }
+
+        .order-item span {
+            font-size: 18px;
+        }
+
+        .total {
+            text-align: right;
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .steps {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 5px;
+        }
+
+        .steps h3 {
+            margin-bottom: 10px;
+        }
+
+        .steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .steps li {
+            margin-bottom: 10px;
+        }
+
+        .cta {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #00ff00;
+            color: #111;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <header>Order Details</header>
+    <div class="order-container" id="order-container">
+        <!-- Product details will be dynamically added here -->
+    </div>
+    <div class="total" id="total-price">
+        Total: ₹0.00
+    </div>
+    <div class="steps">
+        <h3>Steps to Order Your Product:</h3>
+        <ol>
+            <li>Step 1: Take a screenshot of the product details above.</li>
+            <li>Step 2: Click the "Email Us" button below to send us the order details.</li>
+            <li>Step 3: On the provide Email send the screen short with details given below.</li>
+            <li>Step 4: [With yoy name] ,[Delivery address] ,[email,phone no] ,[Payment type].</li>
+            <h1>SERVICES READY IN SOON PLEASE DONT MESSAGE NOW</h1>
+        </ol>
+        <a href="mailto:skullchunksofficial@gmail.com" class="cta">Email Us</a>
+    </div>
+    <script>
+        const orderContainer = document.getElementById("order-container");
+        const totalPriceElement = document.getElementById("total-price");
+
+        // Retrieve cart data from localStorage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderOrder() {
+            orderContainer.innerHTML = ""; // Clear existing content
+            let total = 0;
+
+            cart.forEach(item => {
+                const orderItem = document.createElement("div");
+                orderItem.classList.add("order-item");
+                orderItem.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <span>Quantity: ${item.quantity}</span>
+                    <span>Price: ₹${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                orderContainer.appendChild(orderItem);
+                total += item.price * item.quantity;
+            });
+
+            totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+        }
+
+        // Initialize cart quantities if missing
+        cart.forEach(item => {
+            if (!item.quantity) item.quantity = 1;
+        });
+
+        renderOrder();
+    </script>
+</body>
+</html>

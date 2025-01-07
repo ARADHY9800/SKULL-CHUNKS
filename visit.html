@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Skull Chunks - Your hub for premium gaming gear, web solutions, and more.">
+    <meta property="og:title" content="Visit Skull Chunks">
+    <meta property="og:description" content="Dive into a world of premium gaming gear, cutting-edge web solutions, impactful brand promotions, and top-notch video editing services.">
+    <meta property="og:image" content="path/to/image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <title>Visit Skull Chunks</title>
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --primary-color: #1e90ff;
+            --secondary-color: #ff4500;
+            --bg-color: #121212;
+            --text-color: #f0f0f0;
+            --button-hover: #ff6347;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Video Box Styling */
+        .video-box {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            border: 5px solid var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .video-box iframe {
+            width: 100%;
+            height: 500px;
+        }
+
+        /* Mute Button Styling */
+        .mute-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .mute-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 2rem;
+            text-align: center;
+            color: var(--primary-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        main {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--text-color);
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Skull Chunks</h1>
+    </header>
+
+    <main>
+        <section id="video-section">
+            <h1>Explore Our Services</h1>
+            <p>Watch the video below to know more about our premium services.</p>
+
+            <!-- Video Box -->
+            <div class="video-box">
+                <iframe id="videoPlayer" src="https://www.youtube.com/embed/ws_HUNQ49Io?si=eabrrDRkuXAkFihG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Skull Chunks</p>
+        <a href="#explore">Back to Top</a>
+    </footer>
+
+</body>
+</html>

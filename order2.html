@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Your Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center; /* Center text horizontally */
+            margin: 0;
+        }
+
+        header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #262640;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .home-button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ff4500;
+            margin-top: 60px; /* Add margin to move it down */
+        }
+
+        .order-steps {
+            margin-top: 30px;
+        }
+
+        .order-steps h2 {
+            font-size: 1.5rem;
+            color: #ff4500;
+        }
+
+        .order-steps ol {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            text-align: left; /* Align list items to the left */
+            display: inline-block; /* Center the list */
+        }
+
+        .order-steps li {
+            margin-bottom: 10px;
+        }
+
+        .order-now-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .order-now-button:hover {
+            background-color: #e04300;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="getstarted.html" class="home-button">Back</a>
+    </header>
+
+    <div>
+        <h1>Selected Design: Design <span id="design-number"></span></h1>
+
+        <div class="order-steps">
+            <h2>Steps to Order:</h2>
+            <ol>
+                <li>Review the design you've selected.</li>
+                <li>Provide any additional specifications if needed.</li>
+                <li>According to your package provide the logo , graphics , textures.(optional)</li>
+                <li>Provide the description. (during conversation in email)</li>
+                <li>Click the "Order Now" button to confirm your order.</li>
+                <li>By clicking in order now you reach to our mail.</li>
+                <li>In email firstly upload the screenshot of the cart</li>
+                <li>Upload Details [Your Name],[Email],[Ph number],[PayementType]</li>
+            </ol>
+        </div>
+
+        <button class="order-now-button" onclick="sendOrderEmail()">Order Now</button>
+    </div>
+
+    <script>
+        // Retrieve the design number from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const designNumber = urlParams.get('design');
+        document.getElementById('design-number').innerText = designNumber;
+
+        // Function to send the order email
+        function sendOrderEmail() {
+            const email = "skullchunksofficial@gmail.com";
+            const subject = `Order for Design ${designNumber}`;
+            const body = `I would like to place an order for Design ${designNumber}. Please provide further instructions.`;
+
+            // Use mailto link to open the default email client
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
+</body>
+</html>

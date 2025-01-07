@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #262640;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .home-button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .home-button:hover {
+            background-color: #e04300;
+            transform: scale(1.05);
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: #ff4500;
+        }
+        .designs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .design {
+            background-color: #2e2e3e;
+            border-radius: 8px;
+            padding: 15px;
+            width: calc(25% - 40px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .design img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .design h3 {
+            margin: 15px 0 10px;
+            font-size: 1.2rem;
+            color: #ff4500;
+        }
+        .design button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #ff4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .design button:hover {
+            background-color: #e04300;
+            transform: scale(1.05);
+        }
+        .large-image-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #1e1e2f;
+        }
+        .large-image-container img {
+            width: 80%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .large-image-container .code {
+            background-color: #2e2e3e;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .next-button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .next-button:hover {
+            background-color: #e04300;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="websitemaker.html" class="home-button">Home</a>
+        <h1>Get Started</h1>
+    </header>
+
+    <div class="designs-container">
+        <div class="design" onclick="selectDesign('1')">
+            <img src="https://i.postimg.cc/QNyfdxk3/Screenshot-2024-11-21-154339.png" alt="Design 1">
+            <h3>Design 1</h3>
+            <button>Select</button>
+        </div>
+        <div class="design" onclick="selectDesign('2')">
+            <img src="https://via.placeholder.com/400x400.png?text=Design+2" alt="Design 2">
+            <h3>Design 2</h3>
+            <button>Select</button>
+        </div>
+        <div class="design" onclick="selectDesign('3')">
+            <img src="https://via.placeholder.com/400x400.png?text=Design+3" alt="Design 3">
+            <h3>Design 3</h3>
+            <button>Select</button>
+        </div>
+        <div class="design" onclick="selectDesign('4')">
+            <img src="https://via.placeholder.com/400x400.png?text=Design+4" alt="Design 4">
+            <h3>Design 4</h3>
+            <button>Select</button>
+        </div>
+       <div class="design" onclick="selectDesign('5')">
+            <img src="https://via.placeholder.com/400x400.png?text=Design+4" alt="Design 5">
+            <h3>Design 5</h3>
+            <button>Select</button>
+        </div>
+        <h1>LIBRARY IS STILL UPDATING PLEASE WAIT SOME TIME FOR GETTING A UPDATE
+            For getting more option visit at https://aradhy9800.github.io/SKULL-CHUNKS-WEBSITE-SERVICES/</h1>
+    </div>
+
+    <div class="large-image-container" id="large-image-container">
+        <img id="large-image" src="" alt="Large Design">
+        <div class="code" id="design-code"></div>
+        <button class="next-button" id="next-button" onclick="proceedToOrder()">Next</button>
+    </div>
+
+    <script>
+        let selectedDesign = null;
+
+        function selectDesign(designId) {
+            const largeImageContainer = document.getElementById('large-image-container');
+            const largeImage = document.getElementById('large-image');
+            const designCode = document.getElementById('design-code');
+            selectedDesign = designId;
+
+            // Set the correct image source for each design
+            if (designId === '1') {
+                largeImage.src = "https://i.postimg.cc/QNyfdxk3/Screenshot-2024-11-21-154339.png";
+            } else if (designId === '2') {
+                largeImage.src = "https://via.placeholder.com/800x800.png?text=Design+2";
+            } else if (designId === '3') {
+                largeImage.src = "https://via.placeholder.com/800x800.png?text=Design+3";
+            } else if (designId === '4') {
+                largeImage.src = "https://via.placeholder.com/800x800.png?text=Design+4";
+            } else if (designId === '5') {
+                largeImage.src = "https://via.placeholder.com/800x800.png?text=Design+5";
+
+            }
+
+            largeImage.alt = `Large Design ${designId}`;
+            designCode.innerHTML = `<p>Design ${designId}</p>`;
+            largeImageContainer.style.display = 'flex';
+        }
+
+        function proceedToOrder() {
+            if (selectedDesign) {
+                window.location.href = `order2.html?design=${selectedDesign}`;
+            } else {
+                alert('Please select a design before proceeding.');
+            }
+        }
+    </script>
+</body>
+</html>

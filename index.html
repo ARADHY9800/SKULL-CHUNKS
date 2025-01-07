@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skull Chunks</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f0f;
+            color: #e1e1e1;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #111;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff5722;
+        }
+
+        section#hero {
+            background: #0f0f0f url('hero-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons button {
+            margin: 0 10px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .primary-btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background-color: #e64a19;
+            transform: translateY(-5px);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid #ff5722;
+        }
+
+        .secondary-btn:hover {
+            background-color: #ff5722;
+            color: white;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        section#services {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #222;
+        }
+
+        h1, h2 {
+            font-weight: 600;
+        }
+
+        .service-card {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .service-card .card {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .service-card .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card .card img {
+            margin-bottom: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .service-card .card h3 {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .service-card .card p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .service-card .card a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card .card a:hover {
+            background-color: #e64a19;
+            transform: scale(1.05);
+        }
+
+        section#contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background: #111;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        #contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #e64a19;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>SKULL CHUNKS</h1>
+            <p>Experience top-tier gaming gear, web solutions crafted for champions, brand advertisements, and professional video editing services.</p>
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="window.location.href='visit.html'">Get Started</button>
+                <button class="secondary-btn" onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">View Our Services</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h1>Our Services</h1>
+        <h2>Comprehensive solutions to enhance your gaming experience and online presence.</h2>
+        <div class="service-card">
+            <div class="card">
+                <img src="https://i.postimg.cc/bNXWSZ2H/istockphoto-1296516701-612x612.jpg" alt="Gaming Gear Icon">
+                <h3>Gaming Gear</h3>
+                <p>Premium gaming setups and accessories.</p>
+                <a href="Gaming Gear.html">Visit</a>
+            </div>
+            <div class="card">
+                <img src="https://i.postimg.cc/TPZqNDxt/360-F-249825007-f5dz-NTBu-UZo-V5n-ERUWTl-PDo-U3cv-LIBzn.jpg" alt="Web Solutions Icon">
+                <h3>Web Solutions</h3>
+                <p>Custom web development services.</p>
+                <a href="websitemaker.html">Visit</a>
+            </div>
+            <div class="card">
+                <img src="https://i.postimg.cc/3RtrJgwB/SPEAKER.png" alt="Brand Promotion Icon">
+                <h3>Brand Promotion</h3>
+                <p>Promote your brand to reach a wider audience.</p>
+                <a href="coming.html">Visit</a>
+            </div>
+            <div class="card">
+                <img src="https://i.postimg.cc/XqyMSFBX/VICON.png" alt="Video Editing Icon">
+                <h3>Video Editing</h3>
+                <p>Professional video editing for your projects.</p>
+                <a href="coming.html">Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <a href="mailto:skullchunksofficial@gmail.com" class="contact-btn">Email Us</a>
+    </section>
+
+    <footer>
+        <p>© 2025 Skull Chunks | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </footer>
+
+</body>
+</html>
